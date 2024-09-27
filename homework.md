@@ -1,0 +1,11 @@
+ - create a repo=sitry
+ - Initalize the repo=sitry
+ - node modulues, package.json, package-lock.json
+ - Install Eapress
+ - create a server
+ - Li=sten to port 7777
+ - Write  request handler for /test , /hello
+ - in=stall nodemon and update the scripts
+ -what are dependencies
+ - use of -g command
+ - difference between caret anf tilde

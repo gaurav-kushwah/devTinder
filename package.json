@@ -1,0 +1,17 @@
+{
+  "name": "devconnections",
+  "version": "1.0.0",
+  "description": "this project is for developers who want to connect to each other",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check":"node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Gaurav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
+  }
+}
