@@ -7,5 +7,5 @@
  - Write  request handler for /test , /hello
  - in=stall nodemon and update the scripts
  -what are dependencies
- - use of -g command
+ - ue of -g command
  - difference between caret anf tilde
