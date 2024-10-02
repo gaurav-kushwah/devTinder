@@ -10,36 +10,28 @@ app.listen(port,()=>{
 })
 
 
-app.get("/user",(req,res)=>{
-    res.send({"name":Akshat,"surname":Bharucha});
-})
-
-
-app.post("/user",(req,res)=>{
-    res.send("User Created Successfully");
-})
+// app.get("/abc?d",(req,res)=>{
+//     res.send({"name":"Akshat","surname":"Bharucha"});
+// })
 
 
 
-app.put("/user",(req,res)=>{
-    res.send("User updated Successfully");
-})
-
-
-app.delete("/user",(req,res)=>{
-    res.send("User deleted Successfully");
+app.get("/abcd/:name/:id/:age",(req,res)=>{
+    console.log(req.params)
+    res.send({"name":"Akshat","surname":"Bharucha"});
 })
 
 
 
 
 
-app.use("",(req,res)=>{
-    res.send("Hey you got response from server");
-})  
 
- // "" and "/" is the same case when it comes to extension
+// app.use("",(req,res)=>{
+//     res.send("Hey you got response from server");
+// })  
+
+//  // "" and "/" is the same case when it comes to extension
  
-app.use("/",(req,res)=>{
-    res.send("server is started on ............./.............")
-})
+// app.use("/",(req,res)=>{
+//     res.send("server is started on ............./.............")
+// })
