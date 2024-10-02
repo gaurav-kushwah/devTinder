@@ -33,20 +33,6 @@ app.delete("/user",(req,res)=>{
 
 
 
-// app.use("/hello/1",(req,res)=>{
-//     res.send("server is started on ............./hello/1.............")
-// })
-// app.use("/hello/2",(req,res)=>{
-//     res.send("server is started on ............./hello/2.............")
-// })
-
-// app.use("/hello",(req,res)=>{
-//     res.send("server is started on ............./hello.............")
-// })
-
-// app.use("/test",(req,res)=>{
-//     res.send("server is started on ............./test.............")
-// })
 
 app.use("",(req,res)=>{
     res.send("Hey you got response from server");

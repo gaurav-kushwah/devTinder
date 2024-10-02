@@ -26,3 +26,8 @@
 
 
  - Write logic to handle Get, Post, Patch, Delete API calls and test them on Postman 
+
+
+ -query params
+ -body query
+ -use of ?, + , * regex
