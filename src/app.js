@@ -24,6 +24,37 @@ app.get("/abcd/:name/:id/:age",(req,res)=>{
 
 
 
+app.use("/Route",(req,res,next)=>{
+    console.log("inside !st route handler");
+    next();
+    // res.send("Response 1")
+
+}
+,
+(req,res,next)=>{
+    console.log("inside 2st route handler");
+    next();
+    // res.send("Response 2")
+},
+(req,res,next)=>{
+    console.log("inside 3rd route handler");
+    // res.send("Response 3")
+    next();
+},[
+(req,res,next)=>{
+    console.log("inside 4th route handler");
+    // res.send("Response 2")
+    next();
+},
+(req,res,next)=>{
+    console.log("inside 5th route handler");
+    res.send("Response 5")
+}]
+)
+
+
+
+
 
 
 // app.use("",(req,res)=>{

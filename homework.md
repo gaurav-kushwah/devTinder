@@ -26,8 +26,19 @@
 
 
  - Write logic to handle Get, Post, Patch, Delete API calls and test them on Postman 
-
-
  -query params
+
+
+
  -body query
- -use of ?, + , * regex
+
+ -use of ?, + , * regex    
+
+
+
+
+ // Multiple riute Handlers -- play with the code 
+
+ -- next()
+ -- next funvtion and errors along with the res.send
+ -- app.use("/route",[ph1, ph2],ph3,ph4,ph5)
