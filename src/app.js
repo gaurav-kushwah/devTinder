@@ -4,6 +4,8 @@ const app = express();
 
 const port = 4000;
 
+const {adminAuth, userAuth} = require("./middlewares/authMiddleware")
+
 app.listen(port,()=>{
     console.log("Server is Started on port no: ", port)
 
@@ -15,6 +17,29 @@ app.listen(port,()=>{
 // })
 
 
+app.use("/admin",adminAuth);
+// app.use("/user",userAuth)
+
+
+
+app.get("/admin/AllData",(req,res,next)=>[
+    res.send({"user":"Gaurav"})
+])
+
+app.get("/admin",(req,res,next)=>[
+    res.send("Your are logged in Successfully as Admin")
+])
+
+
+app.get("/user",(req,res,next)=>[
+    res.send("Your are logged in Successfully as User")
+])
+
+app.get("/user/AllData",userAuth,(req,res,next)=>[
+    res.send({"user":"Gaurav"})
+])
+
+
 
 app.get("/abcd/:name/:id/:age",(req,res)=>{
     console.log(req.params)
@@ -23,33 +48,22 @@ app.get("/abcd/:name/:id/:age",(req,res)=>{
 
 
 
-
-app.use("/Route",(req,res,next)=>{
+app.get("/",(req,res,next)=>{
+    res.send("sent directly from regex")
+})
+app.get("/Route",(req,res,next)=>{
     console.log("inside !st route handler");
     next();
     // res.send("Response 1")
 
 }
-,
-(req,res,next)=>{
-    console.log("inside 2st route handler");
+)
+
+app.get("/Route",(req,res,next)=>{
+    console.log("inside !st route handler");
     next();
-    // res.send("Response 2")
-},
-(req,res,next)=>{
-    console.log("inside 3rd route handler");
-    // res.send("Response 3")
-    next();
-},[
-(req,res,next)=>{
-    console.log("inside 4th route handler");
-    // res.send("Response 2")
-    next();
-},
-(req,res,next)=>{
-    console.log("inside 5th route handler");
-    res.send("Response 5")
-}]
+    res.send("Response 1")
+}
 )
 
 

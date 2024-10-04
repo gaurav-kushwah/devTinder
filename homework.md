@@ -42,3 +42,14 @@
  -- next()
  -- next funvtion and errors along with the res.send
  -- app.use("/route",[ph1, ph2],ph3,ph4,ph5)
+
+<--------------------------MiddleWare------------------------->
+ ----what is middleware documentation reading 
+ -----how express.js basicallyy handles request behind the scenes 
+ ----- why do we need middleware 
+ ----difference between app.use and app.all (read from documentation)
+ ----Write a dummy auth middleware for admin
+ ----write a dummy auth middleware for user router except login
+
+
+
