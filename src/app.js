@@ -1,15 +1,27 @@
 const express = require("express");
-
+const connectToDb = require('./config/database');
 const app = express();
 
 const port = 4000;
-
+app.use(express.json());
 const {adminAuth, userAuth} = require("./middlewares/authMiddleware")
+const User = require("./models/User")
 
-app.listen(port,()=>{
-    console.log("Server is Started on port no: ", port)
 
+// console.log(connecttToDb());
+connectToDb()
+.then(() => {
+    console.log('Connected! to the Database Successfully!!!!!')
+    app.listen(port,()=>{
+        console.log("Server is Started on port no: ", port)
+    })
 })
+.catch((err) => {
+    console.log(err)
+});
+
+
+
 
 
 // app.get("/abc?d",(req,res)=>{
@@ -19,6 +31,22 @@ app.listen(port,()=>{
 
 app.use("/admin",adminAuth);
 // app.use("/user",userAuth)
+
+
+app.post("/signup",async (req,res)=>{
+
+    const UserData = new User(req.body)
+    console.log(req.body)
+
+    try{
+    await UserData.save();
+    res.status(201).send("userCreated Succesfully")
+    }
+    catch(err){
+        res.status(201).send("user has not been created", err.message)
+
+    }
+})
 
 
 
