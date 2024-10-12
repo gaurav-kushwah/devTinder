@@ -84,7 +84,27 @@
 --js Object vs json Differences
 -- Add the express.json middleware to your app
 -- make your journey API dynamic to recieve data from the end user
-    
+--User.findOne with duplicate emailids, which object returned
+--APi -get user by email
+--API - feed AAPI - GET/feed - get all the user from the database  
+--API - GET USER by ID function of mongoose
+
+--API - update a user using mngo DB Id
+-- API - delete a user
+-- Explore the mongoose documentation for mmodl API anf Functions
+-- options are in model.findoneandupdate
+
+-- API - update a user using email
+ 
+
+ --explore SchemaTypes options from the documentation
+ -- and required , uniquue, lowercase, min, minlength, trim
+ --- add default
+ --create a custom validate function for gennder
+ -- Improve the DB schema -- pit all appropriate Validations on each field in Schema
+ -- Add Timestamps in the userSchema
+ 
+
 
 
 

@@ -43,20 +43,146 @@ app.post("/signup",async (req,res)=>{
     res.status(201).send("userCreated Succesfully")
     }
     catch(err){
-        res.status(201).send("user has not been created", err.message)
+        res.status(201).send("user has not been created" + err.message)
 
     }
 })
 
+app.get("/user", async (req,res)=>{
+    console.log(req.body.emailId);
+    const searchEmail = req.body.emailId;
+
+    try{
+        const users = await User.findOne({emailId:searchEmail})
+        // console.log(users)
+        if(!users){
+            res.status(404).send("User Not Found!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }
+    catch(err){
+        res.status(401).send(`something went wrong ${err}`)
+
+    }
+})
+app.get("/adminFind", async (req,res)=>{
+    // console.log(req.body.emailId);
+    // const searchEmail = req.body.emailId;
+
+    const id =req.body.id;
+
+    try{
+        const users = await User.findById({_id:id})
+        // console.log(users)
+        if(!users){
+            res.status(404).send("No Users Present!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }
+    catch(err){
+        res.status(401).send(`something went wrong ${err}`)
+
+    }
+})
+app.get("/feed", async (req,res)=>{
+    // console.log(req.body.emailId);
+    // const searchEmail = req.body.emailId;
+
+    try{
+        const users = await User.find({})
+        // console.log(users)
+        if(!users){
+            res.status(404).send("No Users Present!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }
+    catch(err){
+        res.status(401).send(`something went wrong ${err}`)
+
+    }
+})
+
+app.delete("/user",async(req,res)=>{
+    const userId = req.body.id;
+    console.log(userId)
+    try{
+        const users = await  User.findByIdAndDelete({_id:userId});
+        if(!users){
+            res.status(404).send("User Not Found!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }catch(err){
+
+        res.status(401).send(`something went wrong ${err}`)
+
+    }
+})
+
+app.patch("/userById",async(req,res)=>{
+    const userId = req.body.id;
+    console.log(userId)
+    try{
+        const users = await  User.findByIdAndUpdate({_id:userId},req.body);
+        if(!users){
+            res.status(404).send("User Not Found!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }catch(err){
+        res.status(401).send(`something went wrong ${err}`)
+    }
+})
+
+app.patch("/userByEmail",async(req,res)=>{
+    const userId = req.body.emailId;
+    console.log(userId)
+    const allowedFields=["firstName","lastName","age","password","gender","photoUrl"]
+
+    const isAllowedtoEdit = Object.keys(req.body).every((k)=>allowedFields.includes(k));
+    console.log(isAllowedtoEdit);
+    if(!isAllowedtoEdit){
+        throw new Error("this Field Cannot be updated")
+    }
+
+    if(req.body?.length<10){
+        throw new Error("Skills can't be more than 10")
+    }
+    try{
+        const users = await  User.findOneAndUpdate({emailID:userId},req.body);
+        if(!users){
+            res.status(404).send("User Not Found!!")
+        }
+        else{
+            res.status(200).send(users)
+        }
+
+    }catch(err){
+        res.status(401).send(`something went wrong ${err}`)
+    }
+})
 
 
-app.get("/admin/AllData",(req,res,next)=>[
-    res.send({"user":"Gaurav"})
-])
+// app.get("/admin/AllData",(req,res,next)=>[
+//     res.send({"user":"Gaurav"})
+// ])
 
-app.get("/admin",(req,res,next)=>[
-    res.send("Your are logged in Successfully as Admin")
-])
+// app.get("/admin",(req,res,next)=>[
+//     res.send("Your are logged in Successfully as Admin")
+// ])
 
 
 app.get("/user",(req,res,next)=>[
@@ -98,13 +224,3 @@ app.get("/Route",(req,res,next)=>{
 
 
 
-
-// app.use("",(req,res)=>{
-//     res.send("Hey you got response from server");
-// })  
-
-//  // "" and "/" is the same case when it comes to extension
- 
-// app.use("/",(req,res)=>{
-//     res.send("server is started on ............./.............")
-// })
