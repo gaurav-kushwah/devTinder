@@ -103,6 +103,38 @@
  --create a custom validate function for gennder
  -- Improve the DB schema -- pit all appropriate Validations on each field in Schema
  -- Add Timestamps in the userSchema
+
+ --Add API Level validations functions for gender
+ -- Data Sanitizing  - Add API validation for each API
+ -- install validator library
+ -- explore validator library function and Use
+ -- never trust req.body -- use params
+
+
+
+ --- validate data in singupAPI
+ --- install brcypt package
+ --- create password hash using bcrypt.hash and save the user is encrypted password
+
+
+ // install Jwt token // install cookie parser
+
+ // send a dummy cookie
+ // creaste a get porfile api get a cookie back or not
+
+ //read from profile api 
+ // In Login Api, after email and password validation create a jwt token and send it back to theuser in cookies 
+ // read the cookies inside your profile api and find the logged in user
+
+
+ -- write you user auth middleware
+ -- ad the user auth ,iddleware in profile api and a new send connection api connection request
+
+ -- set the expirty of the JWT token and cookie to 7 dayws
+
+ 
+
+  
  
 
 

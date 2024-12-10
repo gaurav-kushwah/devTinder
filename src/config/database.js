@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+var MongoClient = require('mongodb').MongoClient;
 
 
 
@@ -14,6 +15,7 @@ const connectToDb = async () => {
   try {
     // await mongoose.connect('');
     await mongoose.connect('mongodb://gkkush523:abcd@cluster0-shard-00-00.i1ycf.mongodb.net:27017,cluster0-shard-00-01.i1ycf.mongodb.net:27017,cluster0-shard-00-02.i1ycf.mongodb.net:27017/devTinder?ssl=true&replicaSet=atlas-10xew2-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0');
+    // await MongoClient.connect('mongodb://gkkush523:abcd@cluster0-shard-00-00.i1ycf.mongodb.net:27017,cluster0-shard-00-01.i1ycf.mongodb.net:27017,cluster0-shard-00-02.i1ycf.mongodb.net:27017/devTinder?ssl=true&replicaSet=atlas-10xew2-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0')
     console.log('Connected to MongoDB successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error);
