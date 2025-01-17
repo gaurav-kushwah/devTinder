@@ -132,10 +132,82 @@
 
  -- set the expirty of the JWT token and cookie to 7 dayws
 
+
+
+ --create userschema method to getJWT 
+ -- ceate a userschema method to brcypt the password for encrypting the password 
+
+
+
+
+
+ // DevTinder APIs 
+
+
+
+//Auth Router
+ -- post /signup
+-- post /login
+-- post /logout
+
+//Profile Rouyter
+ -- get /profile/view
+ --patch /profile/edit
+-- patch /profile/password
+
+
+//Connection request router
+--post /request/send/interested/:userId
+--post /request/send/ignored/:userId
+--post /request/review/accepted/:requestId
+--post /request/review/rejected/:requestId
+  
+//User profiles router 
+--get /user/connections
+--get /user/requests/received
+--get /user/feed -- Gets you the prfiles of the userso n the platform
+
+status: ignored, interested, accepted, rejected 
+
+
+//tasks to do --> 
+
+-- create a list all API youy can think in dev Tinder
+-- read documentation for express.router
+-- create routes folder for managing auth,profiles, requesr routers
+
+-- cratev auth router
+-- proffile router
+--request router
+
+
+
+--create a post /logout API
+--create Patch /profile/edit
+
+-- test all APIS 6 api 
+--create a /profile/password API 
+password reset API
+--make sure you validat all data in everyy post patch request
+
+
+
+--reset password API homework 
+
+patch  password API for reseting the password 
+
+
+step1 -- it will take the exising password and the new password
+step2-- existog password and email  is correct or not
+step3 -- current password is strong or not 
+
+
+
  
 
-  
- 
+
+
+
 
 
 

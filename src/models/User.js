@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const validatorLib = require('validator');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -39,6 +41,20 @@ const userSchema = new mongoose.Schema({
         default: "This is a default about of the user!"
     }
 }, { strict: true, timestamps: true },);
+
+userSchema.methods.getJWT = async function () {
+    const user = this;
+    const token = await jwt.sign({_id:user._id},"1234",{ expiresIn: "2h" });
+    return token;
+}
+
+
+userSchema.methods.validatePasswords = async function (userEnteredPass) {
+    const user = this;
+    const dbPassHash = user.password;
+    const isValidPass = await bcrypt.compare(userEnteredPass, dbPassHash); 
+    return isValidPass;
+}
 
 function agevalidator(value) {
     if (!["Male", "Female", "Others"].includes(value)) {
