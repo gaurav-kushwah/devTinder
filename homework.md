@@ -203,6 +203,38 @@ step3 -- current password is strong or not
 
 
 
+//send Connection request Schema 
+
+
+-- create a Connection request Schema
+--- Dsign a  conection request API 
+-- proper validation of Data
+-- think about All Corner Cases
+-- queries in mongoose $or and $and
+--read more about index in mongoDB
+
+-- advantages and disadvantages of using Indexes
+-- Schema.pre function read avouyt it
+
+
+
+--Write code for proper validation for review API 
+checks -->  toUserId --> loggedInUser
+            Status  ---> interested
+            Object id should be valid
+
+two status can be choosen --> [accepted,  rejected ]
+
+
+//Logic for GET /feed API
+-- explore the $nin 
+
+
+
+
+
+
+
  
 
 

@@ -13,12 +13,12 @@ const { userAuth } = require("./middlewares/authMiddleware");
 const userAuthrouter = require('./routers/userauth');
 const requestRouter = require('./routers/request');
 const profileRouter = require('./routers/profile');
-
+const userRouter = require('./routers/user')          
 
 app.use('/',  userAuthrouter);
 app.use('/', requestRouter);
-
 app.use('/',profileRouter)
+app.use('/', userRouter);
 
 
 
