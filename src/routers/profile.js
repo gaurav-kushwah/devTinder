@@ -47,13 +47,13 @@ profileRouter.patch("/profile/edit", userAuth, async (req, res) => {
         const isEditedAllowed = Object.keys(req.body).every((field) => editableFields.includes(field));
 
         if (!isEditedAllowed) {
-            throw new Error("Invalid fierld or field casnnot be editable")
+            throw new Error("Invalid field or field cannot be editable")
         }
         else {
             console.log(req.user);
             const loggedInUser = req.user;
 
-            Object.keys(req.body).forEach((field) => loggedInUser[field] = req.body[field])
+            Object.keys(req.body).forEach((field) => loggedInUser[field] = req.body[field]);
             res.status(201).send(`${loggedInUser.firstName} your profile has successfully updated`);
 
         }

@@ -63,6 +63,12 @@ userRouter.get("/user/connections", userAuth, async (req,res)=>{
 userRouter.get("/user/feed", userAuth, async (req,res)=>{
 try{ 
 
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip  = (page-1)*limit;
+
+    limit = limit>50?50:limit;
+
     const loggedInUserId = req.user;
 
     const ConnectionRequest = await ConnectionRequestModel.find({
@@ -81,7 +87,7 @@ try{
         {_id:{ $nin : Array.from(hiddenProfilesSet)}},
         {_id :{ $ne: loggedInUserId._id}}
         ]
-    }).select(USER_SAFE_DATA);
+    }).select(USER_SAFE_DATA).skip(skip).limit(limit);
     console.log(Array.from(hiddenProfilesSet));
     res.status(201).send(`Users all interactions ${Users}`)
 
